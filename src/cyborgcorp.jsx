@@ -503,7 +503,7 @@ export default function CyborgCorpHomepage() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</a></li>
+              <li><Link to='/termsOfService' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</a></li>
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</a></li>
             </ul>

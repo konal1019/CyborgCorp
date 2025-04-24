@@ -2,7 +2,8 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
-import labImg from './lab.jpg'
+import labImg from './lab.jpg';
+import { useLocation } from 'react-router-dom';
 
 // Background grid component reused from homepage
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -20,10 +21,14 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
 };
 
 export default function AboutPage() {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -81,7 +86,7 @@ export default function AboutPage() {
       icon: <Heart className="text-cyan-400 w-12 h-12" />
     }
   ], []);
-
+  
   return (
     <div className="min-h-screen bg-black text-gray-100 relative overflow-hidden">
       {/* cursor effect */}
@@ -146,7 +151,7 @@ export default function AboutPage() {
       </header>
 
       {/* About Hero Section */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
+      <section id = 'home' className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
           <BackgroundGrid />
         </div>
