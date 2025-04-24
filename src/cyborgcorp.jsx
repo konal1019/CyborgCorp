@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
 import logo from './logo.png';
+import { Link } from 'react-router-dom';
 
 // generate grid cells first so that the site doesn't run at 1 fps
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -492,7 +493,7 @@ export default function CyborgCorpHomepage() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
-              <li><a onClick={() => scrollToSection("hero")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">About Us</a></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">About Us</Link></li>
               <li><a href="#testimonials" onClick={() => scrollToSection("testimonials")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Testimonials</a></li>
               <li><a href="#contact" onClick={() => scrollToSection("contact")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Contact</a></li>
             </ul>
