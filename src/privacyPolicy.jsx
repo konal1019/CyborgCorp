@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
           <nav className="hidden md:flex gap-8">
             <Link to="/" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Home</Link>
             <Link to="/about" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">About</Link>
-            <Link to="/technology" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Technology</Link>
+            <Link to="/nerd" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Technology</Link>
             <Link to="/reviews" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Testimonials</Link>
             <Link to="/contact" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Contact</Link>
           </nav>
@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
             <div className="container mx-auto px-4 flex flex-col gap-4">
               <Link to="/" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Home</Link>
               <Link to="/about" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">about</Link>
-              <Link to="/technology" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Technology</Link>
+              <Link to="/nerd" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Technology</Link>
               <Link to="/reviews" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Testimonials</Link>
               <Link to="/contact" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Contact</Link>
               <Link to="/marketplace" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Products</Link>

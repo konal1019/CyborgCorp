@@ -120,6 +120,7 @@ export default function AboutPage() {
             <Link to="/" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Home</Link>
             <Link to="/about" className="text-cyan-400 transition-colors cursor-pointer hover:scale-105">About</Link>
             <Link to="/reviews" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Reviews</Link>
+            <Link to="/nerd" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Technology</Link>
             <Link to="/contact" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Contact</Link>
           </nav>
 
@@ -144,6 +145,7 @@ export default function AboutPage() {
               <Link to="/about" className="text-cyan-400 transition-colors py-2 cursor-pointer">About</Link>
               <Link to="/reviews" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Reviews</Link>
               <Link to="/contact" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Contact</Link>
+              <Link to="/nerd" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Technology</Link>
               <Link to="/marketplace" className="text-cyan-400 transition-colors py-2 cursor-pointer">Buy Now</Link>
             </div>
           </nav>

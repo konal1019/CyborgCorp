@@ -133,9 +133,9 @@ export default function TermsOfService() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8">
             <Link to="/" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Home</Link>
-            <Link to="/about" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">About us</Link>
-            <Link to="/technology" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Technology</Link>
-            <Link to="/reviews" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Testimonials</Link>
+            <Link to="/about" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">About</Link>
+            <Link to="/nerd" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Technology</Link>
+            <Link to="/reviews" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Reviews</Link>
             <Link to="/contact" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Contact</Link>
           </nav>
 
@@ -157,9 +157,9 @@ export default function TermsOfService() {
           <nav className="md:hidden bg-gray-900 border-t border-gray-800 py-4">
             <div className="container mx-auto px-4 flex flex-col gap-4">
               <Link to="/" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Home</Link>
-              <Link to="/about" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">About us</Link>
-              <Link to="/technology" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Technology</Link>
-              <Link to="/reviews" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Testimonials</Link>
+              <Link to="/about" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">About</Link>
+              <Link to="/nerd" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Technology</Link>
+              <Link to="/reviews" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Reviews</Link>
               <Link to="/contact" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Contact</Link>
               <Link to="/products" className="hover:text-cyan-400 transition-colors py-2 cursor-pointer">Products</Link>
             </div> 

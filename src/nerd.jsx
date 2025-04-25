@@ -124,6 +124,7 @@ export default function NerdPage() {
             <Link to="/" className={getNavLinkClass('/')}>Home</Link>
             <Link to="/about" className={getNavLinkClass('/about')}>About</Link>
             <Link to="/reviews" className={getNavLinkClass('/reviews')}>Reviews</Link>
+            <Link to="/nerd" className="hover:text-cyan-400 transition-colors cursor-pointer hover:scale-105">Technology</Link>
             <Link to="/contact" className={getNavLinkClass('/contact')}>Contact</Link>
           </nav>
 
@@ -202,7 +203,7 @@ export default function NerdPage() {
         </section>
 
         {/* Section Navigation Bar - Manually created */}
-        <div className="sticky top-20 bg-gray-900/80 backdrop-blur-sm p-4 rounded-lg mb-16 border border-gray-800 overflow-x-auto z-20">
+        <div className="top-20 bg-gray-900/80 backdrop-blur-sm p-4 rounded-lg mb-16 border border-gray-800 overflow-x-auto z-20">
           <nav className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => scrollToSection('intro')}

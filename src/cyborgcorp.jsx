@@ -354,8 +354,6 @@ export default function CyborgCorpHomepage() {
             </div>
           </div>
         </div>
-        
-        {/* Learn More Button */}
         <div className="flex justify-center mt-12">
           <Link 
             to="/nerd" 
@@ -370,7 +368,51 @@ export default function CyborgCorpHomepage() {
         </div>
       </div>
     </section>
+    {/* Testimonials Section */}
+    <section id="testimonials" className="py-12 md:py-20 relative overflow-hidden bg-gray-950">
+      <div className="absolute inset-0 z-0 opacity-20">
+        <BackgroundGrid rows={10} cols={10} />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Client <span className="text-cyan-500">Testimonials</span></h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Hear what our enhanced clients have to say about their cybernetic experience.
+          </p>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-black/40 backdrop-blur-sm border border-gray-800 p-6 rounded-lg relative group hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-cyan-500 text-black rounded-full p-2 flex items-center justify-center w-10 h-10 shadow-lg">
+                <span className="font-bold">{testimonial.rating}</span>
+              </div>
+
+              <div className="text-cyan-500 text-4xl font-bold mb-4">"</div>
+
+              <p className="text-gray-300 mb-6 italic">
+                {testimonial.quote}
+              </p>
+
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500 font-bold">
+                  {testimonial.customer.charAt(0)}
+                </div>
+                <div className="ml-3">
+                  <p className="font-semibold text-white">{testimonial.customer}</p>
+                  <p className="text-xs text-gray-400">Verified Client</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+            <Link to="/reviews" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group inline-block">
+              <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">View More</span>
+            </Link>
+        </div>
+      </div>
+    </section>
     {/* Contact Section */}
     <section id="contact" className="py-12 md:py-16 bg-cyan-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-30">
@@ -443,7 +485,7 @@ export default function CyborgCorpHomepage() {
         </div>
     </section>
 
-    {/* Footer - Positioned relative to ensure visibility */}
+    {/* Footer */}
     <footer className="bg-black border-t border-gray-800 py-8 relative z-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between gap-8">
@@ -481,7 +523,7 @@ export default function CyborgCorpHomepage() {
             <ul className="space-y-2 text-sm">
               <li><Link to='/privacyPolicy' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</Link></li>
               <li><Link to='/termsOfService' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
-              <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</a></li>
+              <li><Link to='/termsOfService#warranty' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
               <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</a></li>
             </ul>
           </div>
