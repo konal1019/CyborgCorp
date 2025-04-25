@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, MessageSquare } from 'lucide-react';
 import logo from './logo.png';
 import { Link } from 'react-router-dom';
 
@@ -405,71 +405,75 @@ export default function CyborgCorpHomepage() {
 
     {/* Contact Section */}
     <section id="contact" className="py-12 md:py-16 bg-cyan-900 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-2/3 h-full bg-gradient-to-r from-cyan-800/50 to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-2/3 bg-gradient-to-tl from-cyan-800/30 to-transparent"></div>
-      </div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Contact Us</h2>
-          <p className="text-cyan-100">
-            Get in touch with our experts for consultations and upgrades.
-          </p>
+        <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-0 w-2/3 h-full bg-gradient-to-r from-cyan-800/50 to-transparent"></div>
+            <div className="absolute bottom-0 right-0 w-1/2 h-2/3 bg-gradient-to-tl from-cyan-800/30 to-transparent"></div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          {/* Phone */}
-          <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
-            <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
-              <Phone className="text-cyan-400" size={24} />
+        <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">Contact Us</h2>
+                <p className="text-cyan-100"> Get in touch with our experts for consultations and upgrades. </p>
             </div>
-            <h3 className="font-medium mb-2">Phone</h3>
-            <p className="text-cyan-100 text-sm">+1 (800) CYBORG-1</p>
-          </div>
-
-          {/* Mobile */}
-          <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
-            <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
-              <Smartphone className="text-cyan-400" size={24} />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                {/* Phone */}
+                <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
+                    <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
+                        <Phone className="text-cyan-400" size={24} />
+                    </div>
+                    <h3 className="font-medium mb-2">Phone</h3>
+                    <p className="text-cyan-100 text-sm">+1 (800) CYBORG-1</p>
+                </div>
+                {/* Mobile */}
+                <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
+                    <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
+                        <Smartphone className="text-cyan-400" size={24} />
+                    </div>
+                    <h3 className="font-medium mb-2">Mobile</h3>
+                    <p className="text-cyan-100 text-sm">+1 (888) UPGRADE</p>
+                </div>
+                {/* Email */}
+                <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
+                    <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
+                        <Mail className="text-cyan-400" size={24} />
+                    </div>
+                    <h3 className="font-medium mb-2">Email</h3>
+                    <p className="text-cyan-100 text-sm">info@cyborgcorp.tech</p>
+                </div>
+                {/* Social Media */}
+                <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
+                    <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
+                        <CircuitBoard className="text-cyan-400" size={24} />
+                    </div>
+                    <h3 className="font-medium mb-2">Social Media</h3>
+                    <div className="flex gap-3 mt-1">
+                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                            <Twitter size={20} />
+                        </a>
+                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                            <Instagram size={20} />
+                        </a>
+                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                            <Linkedin size={20} />
+                        </a>
+                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                            <Github size={20} />
+                        </a>
+                    </div>
+                </div>
             </div>
-            <h3 className="font-medium mb-2">Mobile</h3>
-            <p className="text-cyan-100 text-sm">+1 (888) UPGRADE</p>
-          </div>
-
-          {/* Email */}
-          <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
-            <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
-              <Mail className="text-cyan-400" size={24} />
-            </div>
-            <h3 className="font-medium mb-2">Email</h3>
-            <p className="text-cyan-100 text-sm">info@cyborgcorp.tech</p>
-          </div>
-
-          {/* Social Media */}
-          <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
-            <div className="bg-cyan-500/20 p-3 rounded-full mb-3 group-hover:bg-cyan-500/30 transition-colors">
-              <CircuitBoard className="text-cyan-400" size={24} />
-            </div>
-            <h3 className="font-medium mb-2">Social Media</h3>
-            <div className="flex gap-3 mt-1">
-              <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
-                <Github size={20} />
-              </a>
-            </div>
+          <div className="flex justify-center mt-10">
+              <Link 
+                  to="/contact" 
+                  className="bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-3 px-8 rounded-lg 
+                  transition-all duration-300 transform hover:scale-105 flex items-center gap-2 
+                  shadow-lg hover:shadow-cyan-500/30"
+              >
+                  <MessageSquare size={18} />
+                  <span>Direct Contact</span>
+              </Link>
           </div>
         </div>
-      </div>
     </section>
-
 
     {/* Footer - Positioned relative to ensure visibility */}
     <footer className="bg-black border-t border-gray-800 py-8 relative z-10">
