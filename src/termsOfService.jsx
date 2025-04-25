@@ -3,7 +3,7 @@ import { Menu, X, ChevronRight, CircuitBoard, Shield, FileCheck, AlertTriangle, 
 import logo from './logo.png';
 import { Link, useLocation } from 'react-router-dom';
 
-// Background grid component from homepage
+// create bg grid first to avoid lag
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   const cells = useMemo(() => {
     return Array.from({ length: rows * cols }).map((_, i) => (
@@ -34,7 +34,7 @@ export default function TermsOfService() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // cursor glow effect same as homepage
+  // cursor glow effect 
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isMoving.current) {
@@ -61,11 +61,9 @@ export default function TermsOfService() {
     };
   }, []);
 
-  // Current year calculation
   const currentYear = new Date().getFullYear();
   const startYear = currentYear - 7;
 
-  // Terms of service sections
   const tosCategories = [
     {
       id: "acceptance",
@@ -107,7 +105,6 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-black text-gray-100 relative overflow-hidden">
-      {/* cursor effect */}
       <div
         ref={cursorRef}
         className="fixed w-64 h-64 rounded-full bg-cyan-500/20 blur-3xl pointer-events-none z-10 opacity-50"
@@ -125,7 +122,7 @@ export default function TermsOfService() {
         </div>
       </div>
 
-      {/* Navigation - Same as homepage */}
+      {/* Navigation */}
       <header className="border-b border-gray-800 bg-black/90 backdrop-blur-sm fixed w-full z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
@@ -149,9 +146,9 @@ export default function TermsOfService() {
 
           {/*  CTA Button container */}
           <div className="hidden md:flex gap-4">
-            <a onClick={() => scrollToSection("contact")} className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
+            <Link to='/marketplace' className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
               Upgrade Now
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -355,7 +352,7 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* Footer - Same as homepage */}
+      {/* Footer */}
       <footer className="bg-black border-t border-gray-800 py-8 relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between gap-8">
@@ -392,7 +389,7 @@ export default function TermsOfService() {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</Link></li>
-                <li><Link to="/terms" className="text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
+                <li><Link to="/termsOfService" className="text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
                 <li><Link to="/" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
                 <li><Link to="/" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
               </ul>

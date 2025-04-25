@@ -395,6 +395,11 @@ export default function CyborgCorpHomepage() {
             </div>
           ))}
         </div>
+        <div className="mt-8 text-center">
+            <Link to="/reviews" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group inline-block">
+              <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">View More</span>
+            </Link>
+        </div>
       </div>
     </section>
 
