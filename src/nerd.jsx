@@ -29,11 +29,24 @@ export default function NerdPage() {
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
-
-  // Scroll to top on location change
+  
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+    if (window.location.hash) {
+      scrollToHash();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

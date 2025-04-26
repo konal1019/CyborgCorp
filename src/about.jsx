@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from './logo.png';
 import labImg from './lab.jpg';
-import { useLocation } from 'react-router-dom';
 
 // Background grid component reused from homepage
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -22,6 +21,25 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
 
 export default function AboutPage() {
   const location = useLocation();
+  
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+  
+  useEffect(() => {
+    if (window.location.hash) {
+      scrollToHash();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);

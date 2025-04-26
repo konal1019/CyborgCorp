@@ -18,6 +18,25 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
 
 function Contact() {
   const location = useLocation();
+  
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+  
+  useEffect(() => {
+    if (window.location.hash) {
+      scrollToHash();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [name, setName] = useState('');
   const [contactInfo, setContactInfo] = useState('');
@@ -26,11 +45,6 @@ function Contact() {
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
-  
-  // Scroll to top when page loads
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

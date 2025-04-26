@@ -20,9 +20,25 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
 
 export default function Reviews() {
   const location = useLocation();
+  
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+    if (window.location.hash) {
+      scrollToHash();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);

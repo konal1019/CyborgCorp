@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, MessageSquare } from 'lucide-react';
 import logo from './logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation  } from 'react-router-dom';
 
 // generate grid cells first so that the site doesn't run at 1 fps
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -23,6 +23,25 @@ export default function CyborgCorpHomepage() {
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
+  const location = useLocation();
+  
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+  
+  useEffect(() => {
+    if (window.location.hash) {
+      scrollToHash();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

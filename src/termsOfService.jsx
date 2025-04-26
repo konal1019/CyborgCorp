@@ -20,10 +20,24 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
 
 export default function TermsOfService() {
   const location = useLocation();
+  
+  const scrollToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
+    if (window.location.hash) {
+      scrollToHash();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef(null);
@@ -99,7 +113,7 @@ export default function TermsOfService() {
       id: "warranty",
       title: "Warranty Information",
       icon: <HelpCircle className="text-cyan-500" size={28} />,
-      content: "All CyborgCorp products include a standard 3-year limited warranty covering manufacturing defects and integration failure. Extended warranty options are available at additional cost. Warranty coverage requires compliance with maintenance schedules and approved usage guidelines. Unauthorized repairs or modifications void all warranty protections. Biological rejection incidents are covered only when all pre-screening protocols were properly followed."
+      content: "All CyborgCorp products include a standard 5-year limited warranty covering manufacturing defects and integration failure. Extended warranty options are available at additional cost. Warranty coverage requires compliance with maintenance schedules and approved usage guidelines. Unauthorized repairs or modifications void all warranty protections. Biological rejection incidents are covered only when all pre-screening protocols were properly followed."
     }
   ];
 
