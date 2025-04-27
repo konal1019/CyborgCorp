@@ -18,24 +18,34 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
 
 function Contact() {
   const location = useLocation();
-  
-  const scrollToHash = () => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
+
+  const scrollToSectionURL = () => {
+    const searchParams = new URLSearchParams(location.search);
+    const sectionId = searchParams.get('section');
+    
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
-  
+
   useEffect(() => {
-    if (window.location.hash) {
-      scrollToHash();
+    if (location.search.includes('section=')) {
+      scrollToSectionURL();
     } else {
       window.scrollTo(0, 0);
     }
-  }, []);
+  }, [location]); 
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMenuOpen) setIsMenuOpen(false);
+  };
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [name, setName] = useState('');
@@ -290,22 +300,22 @@ function Contact() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between gap-8">
             <div className="md:w-1/3">
-              <Link to="/" className="flex items-center gap-2 mb-4 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="flex items-center gap-2 mb-4 cursor-pointer hover:opacity-80 transition-opacity">
                 <CircuitBoard className="text-cyan-500" size={20} />
                 <span className="text-lg font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
-              </Link>
+              </div>
               <p className="text-gray-400 text-sm">
-                Pushing the boundaries of human potential through advanced cybernetic enhancements since {foundingYear}.
+                Pushing the boundaries of human potential through advanced cybernetic enhancements since {startYear}.
               </p>
             </div>
 
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Products</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/marketplace" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Implants</Link></li>
-                <li><Link to="/marketplace" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Sensory Enhancements</Link></li>
-                <li><Link to="/marketplace" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Replacements</Link></li>
-                <li><Link to="/marketplace" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Organ Upgrades</Link></li>
+                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Implants</a></li>
+                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Sensory Enhancements</a></li>
+                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Replacements</a></li>
+                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Organ Upgrades</a></li>
               </ul>
             </div>
 
@@ -313,18 +323,18 @@ function Contact() {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Company</h3>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/about" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">About Us</Link></li>
-                <li><Link to="/reviews" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Reviews</Link></li>
-                <li><Link to="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Contact</Link></li>
+                <li><Link to="/reviews" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Testimonials</Link></li>
+                <li><Link to="/contact" className="text-cyan-400 transition-colors cursor-pointer">Contact</Link></li>
               </ul>
             </div>
 
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</a></li>
+                <li><Link to='/privacyPolicy' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</Link></li>
                 <li><Link to='/termsOfService' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
-                <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</a></li>
+                <li><Link to='/termsOfService?section=warranty' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
+                <li><Link tp="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
               </ul>
             </div>
           </div>

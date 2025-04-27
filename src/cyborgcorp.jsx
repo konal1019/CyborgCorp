@@ -24,27 +24,37 @@ export default function CyborgCorpHomepage() {
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
   const location = useLocation();
-  
-  const scrollToHash = () => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
+
+  const scrollToSectionURL = () => {
+    const searchParams = new URLSearchParams(location.search);
+    const sectionId = searchParams.get('section');
+    
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
-  
+
   useEffect(() => {
-    if (window.location.hash) {
-      scrollToHash();
+    if (location.search.includes('section=')) {
+      scrollToSectionURL();
     } else {
       window.scrollTo(0, 0);
     }
-  }, []);
+  }, [location]); 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMenuOpen) setIsMenuOpen(false);
   };
 
   // cursor glow
@@ -98,14 +108,6 @@ export default function CyborgCorpHomepage() {
       rating: 5
     }
   ], []);
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (isMenuOpen) setIsMenuOpen(false);
-  };
 
   return (
     <div className="min-h-screen bg-black text-gray-100 relative overflow-hidden">
@@ -532,8 +534,8 @@ export default function CyborgCorpHomepage() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">About Us</Link></li>
-              <li><a href="#testimonials" onClick={() => scrollToSection("testimonials")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Testimonials</a></li>
-              <li><a href="#contact" onClick={() => scrollToSection("contact")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Contact</a></li>
+              <li><Link to="/reviews" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Testimonials</Link></li>
+              <li><Link to="/contact" onClick={() => scrollToSection("contact")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Contact</Link></li>
             </ul>
           </div>
 
@@ -542,8 +544,8 @@ export default function CyborgCorpHomepage() {
             <ul className="space-y-2 text-sm">
               <li><Link to='/privacyPolicy' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</Link></li>
               <li><Link to='/termsOfService' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
-              <li><Link to='/termsOfService#warranty' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
-              <li><a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</a></li>
+              <li><Link to='/termsOfService?section=warranty' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
+              <li><Link tp="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
             </ul>
           </div>
         </div>
