@@ -100,7 +100,7 @@ function Contact() {
 
   // Current year calculation for footer
   const currentYear = new Date().getFullYear();
-  const foundingYear = currentYear - 7;
+  const startYear = currentYear - 7;
 
   return (
     <div className="min-h-screen bg-black text-gray-100 relative overflow-hidden">

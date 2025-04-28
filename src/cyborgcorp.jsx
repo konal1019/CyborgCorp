@@ -283,11 +283,12 @@ export default function CyborgCorpHomepage() {
             </div>
           </div>
         </div>
-
         <div className="mt-12 text-center">
-          <a className="inline-flex items-center bg-transparent border border-cyan-500 hover:bg-cyan-500/10 text-cyan-500 px-6 py-3 rounded font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/10 cursor-pointer">
-            View All Products <ChevronRight size={16} className="ml-1" />
-          </a>
+          <Link to="/marketplace">
+            <a className="inline-flex items-center bg-transparent border border-cyan-500 hover:bg-cyan-500/10 text-cyan-500 px-6 py-3 rounded font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/10 cursor-pointer">
+              View All Products <ChevronRight size={16} className="ml-1" />
+            </a>
+          </Link>
         </div>
       </div>
     </section>

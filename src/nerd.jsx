@@ -55,7 +55,7 @@ export default function NerdPage() {
   };
 
   const currentYear = new Date().getFullYear();
-  const foundingYear = currentYear - 7;
+  const startYear = currentYear - 7;
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);

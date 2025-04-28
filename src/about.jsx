@@ -401,7 +401,7 @@ export default function AboutPage() {
                 <span className="text-lg font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
               </div>
               <p className="text-gray-400 text-sm">
-                Pushing the boundaries of human potential through advanced cybernetic enhancements since {startYear}.
+                Pushing the boundaries of human potential through advanced cybernetic enhancements since {foundingYear}.
               </p>
             </div>
 
