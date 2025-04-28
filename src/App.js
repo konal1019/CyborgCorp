@@ -7,6 +7,7 @@ import ReviewsPage from './reviews.jsx';
 import PrivacyPolicyPagee from './privacyPolicy.jsx';
 import NerdPage from './nerd.jsx';
 import MarketplacePage from './marketplace.jsx';
+import BuyPage from './buy.jsx';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/privacyPolicy" element={<PrivacyPolicyPagee />} />
       <Route path="/nerd" element={<NerdPage />} />
       <Route path="/marketplace" element={<MarketplacePage />} />
+      <Route path="/buy" element={<BuyPage />} />
     </Routes>
   );
 }

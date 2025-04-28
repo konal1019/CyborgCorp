@@ -1,8 +1,17 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Smartphone, Search, Filter, ShoppingCart, AlertCircle } from 'lucide-react';
+import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Smartphone, Search, Filter, ShoppingCart, AlertCircle, Star } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from './logo.png';
-import './images.css';
+
+// Import product images
+import armImg from './product/arm.jpg';
+import earImg from './product/ear.jpg';
+import eyeImg from './product/eye.jpg';
+import heartImg from './product/heart.jpg';
+import legImg from './product/leg.jpg';
+import lungImg from './product/lung.jpg';
+import neuralinkImg from './product/neuralink.jpg';
+import regulatorImg from './product/regulator.jpg';
+import kidneyImg from './product/kidney.jpg';
 
 // Background grid component reused from about page
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -26,10 +35,10 @@ const productsData = [
       category: "Limb",
       shortName: "arm",
       description: "Advanced cybernetic arm replacement with precision motor control and tactile sensory feedback. Features carbon fiber construction with titanium reinforcement.",
-      imagePath: "products/arm.jpg",
       features: ["Force-responsive grip control", "Neural integration", "Weather-resistant coating", "500+ sensory nodes"],
       price: 12999,
-      rating: 4.8
+      rating: 4.8,
+      image: armImg
     },
     {
       id: "legimax-ultra",
@@ -37,10 +46,10 @@ const productsData = [
       category: "Limb",
       shortName: "leg",
       description: "High-performance lower limb enhancement with adaptive terrain response and energy return system. Designed for both everyday use and athletic performance.",
-      imagePath: "products/leg.jpg",
       features: ["Shock absorption system", "Terrain adaptation AI", "Marathon-grade power cell", "Waterproof construction"],
       price: 15499,
-      rating: 4.7
+      rating: 4.7,
+      image: legImg
     },
     {
       id: "ocular-x-9000",
@@ -48,10 +57,10 @@ const productsData = [
       category: "Eye",
       shortName: "eye1",
       description: "Ultra-high definition visual enhancement with 20x optical zoom and night vision capabilities. Seamless neural integration for natural visual processing.",
-      imagePath: "products/eye.jpg",
       features: ["Infrared vision mode", "4K visual recording", "AR overlay capability", "Electromagnetic spectrum analysis"],
       price: 8799,
-      rating: 4.9
+      rating: 4.9,
+      image: eyeImg
     },
     {
       id: "visionpro-infinity",
@@ -59,10 +68,10 @@ const productsData = [
       category: "Eye",
       shortName: "eye2",
       description: "Premium visual enhancement system with expanded color spectrum perception and microscopic detail resolution. Includes augmented reality interface.",
-      imagePath: "products/eye.jpg",
       features: ["Ultraviolet vision", "Digital zoom up to 30x", "Visual data overlay", "Weather-resistant housing"],
       price: 9299,
-      rating: 4.6
+      rating: 4.6,
+      image: eyeImg
     },
     {
       id: "audiotech-prime",
@@ -70,10 +79,10 @@ const productsData = [
       category: "Ear",
       shortName: "ear1",
       description: "Audiophile-grade auditory enhancement with precise frequency control and noise isolation. Experience sound beyond human limitations.",
-      imagePath: "products/ear.jpg",
       features: ["Ultrasonic hearing range", "Selective sound filtering", "Directional focus", "Underwater functionality"],
       price: 6499,
-      rating: 4.5
+      rating: 4.5,
+      image: earImg
     },
     {
       id: "claritywave-x",
@@ -81,10 +90,10 @@ const productsData = [
       category: "Ear",
       shortName: "ear2",
       description: "Next-generation hearing system with adaptive environmental tuning and conversational focus capability. Perfect for both quiet and crowded environments.",
-      imagePath: "products/ear.jpg",
       features: ["Voice recognition", "Ambient noise control", "Language translation module", "Subvocal command input"],
       price: 7299,
-      rating: 4.7
+      rating: 4.7,
+      image: earImg
     },
     {
       id: "cardiocore-7",
@@ -92,10 +101,10 @@ const productsData = [
       category: "Internal Organ",
       shortName: "heart",
       description: "Advanced cardiac enhancement with adaptive output modulation and integrated monitoring system. Increases circulation efficiency by 35%.",
-      imagePath: "products/heart.jpg",
       features: ["Self-diagnostic system", "Smart rhythm regulation", "Exercise mode", "Remote monitoring"],
       price: 21999,
-      rating: 4.9
+      rating: 4.9,
+      image: heartImg
     },
     {
       id: "pulmolife-alpha",
@@ -103,10 +112,10 @@ const productsData = [
       category: "Internal Organ",
       shortName: "lungs",
       description: "Respiratory system augmentation with pollution filtering and oxygen optimization. Designed for enhanced performance in all environmental conditions.",
-      imagePath: "products/lung.jpg",
       features: ["Particulate filtering", "Oxygen enrichment", "Aquatic adaptation", "Elevation compensation"],
       price: 18799,
-      rating: 4.8
+      rating: 4.8,
+      image: lungImg
     },
     {
       id: "hepatogen-x",
@@ -114,10 +123,10 @@ const productsData = [
       category: "Internal Organ",
       shortName: "regulator",
       description: "State-of-the-art metabolic enhancement that improves toxin processing and nutrient absorption. Our most advanced biological filtration system.",
-      imagePath: "products/regulator.jpg",
       features: ["Accelerated detoxification", "Nutritional optimization", "Self-repair", "Metabolic regulation"],
       price: 16499,
-      rating: 4.6
+      rating: 4.6,
+      image: regulatorImg
     },
     {
       id: "renosys-plus",
@@ -125,10 +134,10 @@ const productsData = [
       category: "Internal Organ",
       shortName: "filter",
       description: "Premium renal enhancement providing superior fluid balance and waste elimination. Reduces metabolic strain and increases overall system efficiency.",
-      imagePath: "products/filter.jpg",
       features: ["Electrolyte balance", "Smart hydration control", "Real-time blood analysis", "AI-driven operation"],
       price: 17299,
-      rating: 4.7
+      rating: 4.7,
+      image: kidneyImg
     },
     {
       id: "neurobridge-pro",
@@ -136,10 +145,10 @@ const productsData = [
       category: "Neuralink",
       shortName: "neuralink1",
       description: "Direct neural interface providing seamless integration with all CyborgCorp enhancements. Enables thought control and advanced sensory processing.",
-      imagePath: "products/neuralink.jpg",
       features: ["Full system integration", "Cognitive enhancement", "Memory augmentation", "Expanded consciousness mode"],
       price: 24999,
-      rating: 5.0
+      rating: 5.0,
+      image: neuralinkImg
     },
     {
       id: "synapselink-max",
@@ -147,10 +156,10 @@ const productsData = [
       category: "Neuralink",
       shortName: "neuralink2",
       description: "Premium neural integration system with expanded bandwidth for simultaneous multi-enhancement control. Features enhanced security protocols.",
-      imagePath: "products/neuralink.jpg",
       features: ["Multi-device control", "Thought encryption", "Cloud connectivity", "Dreamscape navigation"],
       price: 27999,
-      rating: 4.9
+      rating: 4.9,
+      image: neuralinkImg
     }
   ];
 
@@ -163,7 +172,6 @@ export default function MarketplacePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [hoveredProduct, setHoveredProduct] = useState(null);
-  const [imageErrors, setImageErrors] = useState({});
   
   // Current year calculation
   const currentYear = new Date().getFullYear();
@@ -215,15 +223,7 @@ export default function MarketplacePage() {
     };
   }, []);
 
-  // Handle image error
-  const handleImageError = (productId) => {
-    setImageErrors(prev => ({
-      ...prev,
-      [productId]: true
-    }));
-  };
-
-  // Placeholder image component
+  // Placeholder icon component
   const PlaceholderIcon = ({ category }) => {
     switch(category) {
       case 'Limb':
@@ -265,7 +265,7 @@ export default function MarketplacePage() {
       <header className="border-b border-gray-800 bg-black/90 backdrop-blur-sm fixed w-full z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <img src={logo} alt="CyborgCorp Logo" className="h-6 w-auto" />
+            <CircuitBoard className="text-cyan-500" size={20} />
             <span className="text-xl font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
           </Link>
 
@@ -285,7 +285,7 @@ export default function MarketplacePage() {
 
           {/*  CTA Button container */}
           <div className="hidden md:flex gap-4 items-center">
-            <Link to="/cart" className="relative hover:text-cyan-400 transition-colors">
+            <Link to="/buy" className="relative hover:text-cyan-400 transition-colors">
               <ShoppingCart size={20} />
               <span className="absolute -top-2 -right-2 bg-cyan-500 text-black rounded-full w-4 h-4 flex items-center justify-center text-xs">0</span>
             </Link>
@@ -411,19 +411,11 @@ export default function MarketplacePage() {
                 >
                   <div className="h-48 relative overflow-hidden bg-gray-950 flex items-center justify-center">
                     <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredProduct === product.id ? 'opacity-0' : 'opacity-100'}`}>
-                      {/* Use imported image or placeholder if it fails to load */}
-                      {imageErrors[product.id] ? (
-                        <div className="flex items-center justify-center h-full w-full bg-gray-900">
-                          <PlaceholderIcon category={product.category} />
-                        </div>
-                      ) : (
-                        <img 
-                          src={product.imagePath} 
-                          alt={product.name} 
-                          className="object-cover h-full w-full"
-                          onError={() => handleImageError(product.id)}
-                        />
-                      )}
+                      {/* Use actual imported product image */}
+                      <div className="flex items-center justify-center h-full w-full bg-gray-900">
+                        <PlaceholderIcon category={product.category} />
+                        <img src={product.image} alt={product.name} className="absolute object-cover h-full w-full opacity-70" />
+                      </div>
                     </div>
                     
                     {/* Features overlay on hover */}
@@ -510,7 +502,7 @@ export default function MarketplacePage() {
             <Link to="/financing" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
               <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">Financing Options</span>
             </Link>
-            <Link to="/cart" className="bg-cyan-500 py-3 px-6 rounded-lg text-black font-medium hover:bg-cyan-400 transition-colors cursor-pointer text-center">
+            <Link to="/buy" className="bg-cyan-500 py-3 px-6 rounded-lg text-black font-medium hover:bg-cyan-400 transition-colors cursor-pointer text-center">
               View Cart
             </Link>
           </div>
@@ -560,7 +552,6 @@ export default function MarketplacePage() {
               </ul>
             </div>
           </div>
-
           <div className="mt-8 pt-6 border-t border-gray-800 text-center text-sm text-gray-500">
             <p>© {currentYear} CyborgCorp. All rights reserved. Human/Machine Integration License #45291-B</p>
           </div>
@@ -568,21 +559,4 @@ export default function MarketplacePage() {
       </footer>
     </div>
   );
-}
-
-const Star = ({ className, size }) => (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
-      fill="currentColor" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      className={className}
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-    </svg>
-  );
+};
