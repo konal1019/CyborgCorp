@@ -453,7 +453,7 @@ export default function CyborgCorpHomepage() {
                         <Phone className="text-cyan-400" size={24} />
                     </div>
                     <h3 className="font-medium mb-2">Phone</h3>
-                    <p className="text-cyan-100 text-sm">+1 (800) CYBORG-1</p>
+                    <p className="text-cyan-100 text-sm">+1-987-654-320</p>
                 </div>
                 {/* Mobile */}
                 <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
@@ -461,7 +461,7 @@ export default function CyborgCorpHomepage() {
                         <Smartphone className="text-cyan-400" size={24} />
                     </div>
                     <h3 className="font-medium mb-2">Mobile</h3>
-                    <p className="text-cyan-100 text-sm">+1 (888) UPGRADE</p>
+                    <p className="text-cyan-100 text-sm">+1-234-567-890</p>
                 </div>
                 {/* Email */}
                 <div className="bg-black/30 backdrop-blur-sm p-6 rounded-lg flex flex-col items-center text-center hover:bg-black/40 transition-colors cursor-pointer group">
@@ -522,14 +522,14 @@ export default function CyborgCorpHomepage() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Products</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Implants</a></li>
-              <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Sensory Enhancements</a></li>
-              <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Replacements</a></li>
-              <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Organ Upgrades</a></li>
-            </ul>
-          </div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Products</h3>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/marketplace?category=Limb" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Enhancements</Link></li>
+                <li><Link to="/marketplace?category=Eye" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Visual Systems</Link></li>
+                <li><Link to="/marketplace?category=Internal%20Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
+                <li><Link to="/marketplace?category=Neuralink" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Interfaces</Link></li>
+              </ul>
+            </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Company</h3>
@@ -546,7 +546,7 @@ export default function CyborgCorpHomepage() {
               <li><Link to='/privacyPolicy' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</Link></li>
               <li><Link to='/termsOfService' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
               <li><Link to='/termsOfService?section=warranty' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
-              <li><Link tp="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
             </ul>
           </div>
         </div>

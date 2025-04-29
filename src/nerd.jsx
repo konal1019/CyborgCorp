@@ -123,7 +123,7 @@ export default function NerdPage() {
         <div className="absolute inset-0 bg-[url('/circuit-pattern.png')] opacity-5 mix-blend-screen"></div>
       </div>
 
-      {/* Navigation - Fixed to top */}
+      {/* Navigation */}
       <header className="fixed top-0 w-full border-b border-gray-800 bg-black/90 backdrop-blur-sm z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
@@ -144,8 +144,6 @@ export default function NerdPage() {
           <button onClick={toggleMenu} className="md:hidden text-white cursor-pointer hover:text-cyan-400 transition-colors">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
-          {/* CTA Button container */}
           <div className="hidden md:flex gap-4">
             <Link to="/marketplace" className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
               Buy Now
@@ -167,14 +165,11 @@ export default function NerdPage() {
         )}
       </header>
 
-      {/* Main Content Area - Added padding-top to account for fixed header */}
+      {/* Main Content Area */}
       <div className="flex-grow max-w-6xl mx-auto px-4 pt-24 pb-12 relative z-10">
-        {/* Background grid overlay for title */}
         <div className="absolute inset-x-0 top-0 h-96 z-0 opacity-20">
           <BackgroundGrid rows={30} cols={15} />
         </div>
-
-        {/* Title */}
         <h1 id="top" className="text-4xl md:text-6xl font-bold text-center text-cyan-400 mb-12 relative z-10 mt-12">
           The Future of Technology
         </h1>
@@ -214,7 +209,7 @@ export default function NerdPage() {
           </div>
         </section>
 
-        {/* Section Navigation Bar - Manually created */}
+        {/* Section Navigation Bar */}
         <div className="top-20 bg-gray-900/80 backdrop-blur-sm p-4 rounded-lg mb-16 border border-gray-800 overflow-x-auto z-20">
           <nav className="flex flex-wrap gap-4 justify-center">
             <button
@@ -275,8 +270,7 @@ export default function NerdPage() {
             </button>
           </nav>
         </div>
-
-        {/* Technology Sections - Each section written out manually */}
+        
         {/* Cybernetic Eyes Section */}
         <section
           id="cybernetic-eyes"
@@ -623,10 +617,10 @@ export default function NerdPage() {
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Products</h3>
               <ul className="space-y-2 text-sm">
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Implants</a></li>
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Sensory Enhancements</a></li>
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Replacements</a></li>
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Organ Upgrades</a></li>
+                <li><Link to="/marketplace?category=Limb" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Enhancements</Link></li>
+                <li><Link to="/marketplace?category=Eye" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Visual Systems</Link></li>
+                <li><Link to="/marketplace?category=Internal%20Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
+                <li><Link to="/marketplace?category=Neuralink" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Interfaces</Link></li>
               </ul>
             </div>
 

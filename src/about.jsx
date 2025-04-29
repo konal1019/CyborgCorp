@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from './logo.png';
 import labImg from './lab.jpg';
 
-// Background grid component reused from homepage
+// Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   const cells = useMemo(() => {
     return Array.from({ length: rows * cols }).map((_, i) => (
@@ -59,7 +59,7 @@ export default function AboutPage() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Cursor glow effect reused from homepage
+  // Cursor glow effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isMoving.current) {
@@ -114,7 +114,6 @@ export default function AboutPage() {
   
   return (
     <div className="min-h-screen bg-black text-gray-100 relative overflow-hidden">
-      {/* cursor effect */}
       <div
         ref={cursorRef}
         className="fixed w-64 h-64 rounded-full bg-cyan-500/20 blur-3xl pointer-events-none z-10 opacity-50"
@@ -153,8 +152,6 @@ export default function AboutPage() {
           <button onClick={toggleMenu} className="md:hidden text-white cursor-pointer hover:text-cyan-400 transition-colors">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
-          {/*  CTA Button container */}
           <div className="hidden md:flex gap-4">
             <Link to="/marketplace" className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
               Buy Now
@@ -381,7 +378,7 @@ export default function AboutPage() {
             <Link to="/contact" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
               <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">Contact Us</span>
             </Link>
-            <Link to="/careers" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
+            <Link to="/contact" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
               <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">Careers</span>
             </Link>
             <Link to="/marketplace" className="bg-cyan-500 py-3 px-6 rounded-lg text-black font-medium hover:bg-cyan-400 transition-colors cursor-pointer text-center">
@@ -408,10 +405,10 @@ export default function AboutPage() {
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Products</h3>
               <ul className="space-y-2 text-sm">
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Implants</a></li>
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Sensory Enhancements</a></li>
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Replacements</a></li>
-                <li><a onClick={() => scrollToSection("products")} className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Organ Upgrades</a></li>
+                <li><Link to="/marketplace?category=Limb" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Enhancements</Link></li>
+                <li><Link to="/marketplace?category=Eye" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Visual Systems</Link></li>
+                <li><Link to="/marketplace?category=Internal%20Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
+                <li><Link to="/marketplace?category=Neuralink" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Interfaces</Link></li>
               </ul>
             </div>
 
@@ -430,7 +427,7 @@ export default function AboutPage() {
                 <li><Link to='/privacyPolicy' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Privacy Policy</Link></li>
                 <li><Link to='/termsOfService' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Terms of Service</Link></li>
                 <li><Link to='/termsOfService?section=warranty' className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Warranty Info</Link></li>
-                <li><Link tp="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
+                <li><Link to="/contact" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Clinical Trials</Link></li>
               </ul>
             </div>
           </div>

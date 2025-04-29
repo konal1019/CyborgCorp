@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, ShoppingCart, AlertCircle, Frown, Github, Instagram, Code, MessageSquare } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
-// Background grid component reused from marketplace page
+// Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   const cells = useMemo(() => {
     return Array.from({ length: rows * cols }).map((_, i) => (
@@ -100,7 +100,6 @@ export default function BuyPage() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/*  CTA Button container */}
           <div className="hidden md:flex gap-4 items-center">
             <Link to="/marketplace" className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
               Marketplace
@@ -213,11 +212,10 @@ export default function BuyPage() {
               <ul className="space-y-2 text-sm">
                 <li><Link to="/marketplace?category=Limb" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Enhancements</Link></li>
                 <li><Link to="/marketplace?category=Eye" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Visual Systems</Link></li>
-                <li><Link to="/marketplace?category=Internal+Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
+                <li><Link to="/marketplace?category=Internal%20Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
                 <li><Link to="/marketplace?category=Neuralink" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Interfaces</Link></li>
               </ul>
             </div>
-
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Company</h3>
               <ul className="space-y-2 text-sm">

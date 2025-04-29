@@ -4,7 +4,7 @@ import AboutPage from './about.jsx';
 import ContactPage from './contact.jsx';
 import TermsOfServicePage from './termsOfService.jsx';
 import ReviewsPage from './reviews.jsx';
-import PrivacyPolicyPagee from './privacyPolicy.jsx';
+import PrivacyPolicyPage from './privacyPolicy.jsx';
 import NerdPage from './nerd.jsx';
 import MarketplacePage from './marketplace.jsx';
 import BuyPage from './buy.jsx';
@@ -17,7 +17,7 @@ function App() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/termsOfService" element={<TermsOfServicePage />} />
       <Route path="/reviews" element={<ReviewsPage />} />
-      <Route path="/privacyPolicy" element={<PrivacyPolicyPagee />} />
+      <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
       <Route path="/nerd" element={<NerdPage />} />
       <Route path="/marketplace" element={<MarketplacePage />} />
       <Route path="/buy" element={<BuyPage />} />

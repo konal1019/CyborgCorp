@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Smartphone, Search, Filter, ShoppingCart, AlertCircle, Star } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-
-// Import product images
 import armImg from './product/arm.jpg';
 import earImg from './product/ear.jpg';
 import eyeImg from './product/eye.jpg';
@@ -12,8 +10,11 @@ import lungImg from './product/lung.jpg';
 import neuralinkImg from './product/neuralink.jpg';
 import regulatorImg from './product/regulator.jpg';
 import kidneyImg from './product/kidney.jpg';
+import eyeImg2 from './product/eye2.jpg'
+import earImg2 from './product/ear2.jpg'
+import neuralinkImg2 from './product/neuralink2.jpg'
 
-// Background grid component reused from about page
+// Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   const cells = useMemo(() => {
     return Array.from({ length: rows * cols }).map((_, i) => (
@@ -71,7 +72,7 @@ const productsData = [
       features: ["Ultraviolet vision", "Digital zoom up to 30x", "Visual data overlay", "Weather-resistant housing"],
       price: 9299,
       rating: 4.6,
-      image: eyeImg
+      image: eyeImg2
     },
     {
       id: "audiotech-prime",
@@ -93,7 +94,7 @@ const productsData = [
       features: ["Voice recognition", "Ambient noise control", "Language translation module", "Subvocal command input"],
       price: 7299,
       rating: 4.7,
-      image: earImg
+      image: earImg2
     },
     {
       id: "cardiocore-7",
@@ -159,12 +160,11 @@ const productsData = [
       features: ["Multi-device control", "Thought encryption", "Cloud connectivity", "Dreamscape navigation"],
       price: 27999,
       rating: 4.9,
-      image: neuralinkImg
+      image: neuralinkImg2
     }
   ];
 
 export default function MarketplacePage() {
-  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef(null);
   const cursorTimeout = useRef(null);
@@ -172,11 +172,42 @@ export default function MarketplacePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [hoveredProduct, setHoveredProduct] = useState(null);
+  const location = useLocation();
+  const productsGridRef = useRef(null);
+
+  // Check for category in URL and scroll to products grid
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const categoryParam = searchParams.get('category');
+    
+    if (categoryParam) {
+      // Validate if category exists in our data
+      const validCategories = ['All', ...new Set(productsData.map(product => product.category))];
+      const categoryExists = validCategories.includes(categoryParam);
+      
+      if (categoryExists) {
+        setSelectedCategory(categoryParam);
+        
+        // Scroll to products grid
+        if (productsGridRef.current) {
+          setTimeout(() => {
+            productsGridRef.current.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      } else {
+        // Scroll to top if category is invalid
+        window.scrollTo(0, 0);
+      }
+    } else {
+      // No category specified, scroll to top
+      window.scrollTo(0, 0);
+    }
+  }, [location]); 
   
   // Current year calculation
   const currentYear = new Date().getFullYear();
 
-  // Filter products based on search and category
+  // Filter products 
   const filteredProducts = useMemo(() => {
     return productsData.filter(product => {
       const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -186,7 +217,7 @@ export default function MarketplacePage() {
     });
   }, [searchQuery, selectedCategory]);
 
-  // Get unique categories for filter
+  // unique categories for filter
   const categories = useMemo(() => {
     const cats = ['All', ...new Set(productsData.map(product => product.category))];
     return cats;
@@ -196,7 +227,7 @@ export default function MarketplacePage() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Cursor glow effect reused from about page
+  // Cursor glow effect 
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isMoving.current) {
@@ -223,7 +254,7 @@ export default function MarketplacePage() {
     };
   }, []);
 
-  // Placeholder icon component
+  // icon components
   const PlaceholderIcon = ({ category }) => {
     switch(category) {
       case 'Limb':
@@ -282,8 +313,6 @@ export default function MarketplacePage() {
           <button onClick={toggleMenu} className="md:hidden text-white cursor-pointer hover:text-cyan-400 transition-colors">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
-          {/*  CTA Button container */}
           <div className="hidden md:flex gap-4 items-center">
             <Link to="/buy" className="relative hover:text-cyan-400 transition-colors">
               <ShoppingCart size={20} />
@@ -393,8 +422,8 @@ export default function MarketplacePage() {
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="py-12 relative">
+      {/* Products Grid - Added ref for scrolling */}
+      <section ref={productsGridRef} className="py-12 relative">
         <div className="absolute inset-0 z-0 opacity-5">
           <BackgroundGrid rows={12} cols={12} />
         </div>
@@ -499,7 +528,7 @@ export default function MarketplacePage() {
             <Link to="/contact" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
               <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">Book Consultation</span>
             </Link>
-            <Link to="/financing" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
+            <Link to="/buy" className="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg border border-transparent hover:border-cyan-400 transition-all cursor-pointer text-center group">
               <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">Financing Options</span>
             </Link>
             <Link to="/buy" className="bg-cyan-500 py-3 px-6 rounded-lg text-black font-medium hover:bg-cyan-400 transition-colors cursor-pointer text-center">
@@ -528,7 +557,7 @@ export default function MarketplacePage() {
               <ul className="space-y-2 text-sm">
                 <li><Link to="/marketplace?category=Limb" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Limb Enhancements</Link></li>
                 <li><Link to="/marketplace?category=Eye" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Visual Systems</Link></li>
-                <li><Link to="/marketplace?category=Internal+Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
+                <li><Link to="/marketplace?category=Internal%20Organ" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Internal Organs</Link></li>
                 <li><Link to="/marketplace?category=Neuralink" className="text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer">Neural Interfaces</Link></li>
               </ul>
             </div>
