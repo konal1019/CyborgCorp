@@ -31,7 +31,7 @@ export default function BuyPage() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Cursor glow effect reused from marketplace page
+  // Cursor glow effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isMoving.current) {
@@ -102,7 +102,7 @@ export default function BuyPage() {
 
           <div className="hidden md:flex gap-4 items-center">
             <Link to="/marketplace" className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
-              Marketplace
+              Back to Marketplace
             </Link>
           </div>
         </div>

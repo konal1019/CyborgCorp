@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, Award, Zap, Users } from 'lucide-react';
+import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, Award, Zap, Users, Lightbulb } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from './media/logo.jpg';
 import labImg1 from './media/lab1.jpg';
 import labImg2 from './media/lab2.jpg';
 import labImg3 from './media/lab3.jpg';
-import hqImage from './media/HQ.jpg'; // Import the HQ image
+import hqImage from './media/HQ.jpg';
 
 // Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -196,6 +196,12 @@ export default function AboutPage() {
   
   // Team members data
   const teamMembers = useMemo(() => [
+    {
+      name: "Dr. Konal Debnath",
+      title: "Founder and Technical Lead",
+      bio: "The man behind it all, the pioneer of our research and the one who holds us together",
+      icon: <Lightbulb className="text-cyan-400 w-12 h-12" />
+    },
     {
       name: "Dr. Eliza Chen",
       title: "Chief Innovation Officer",
@@ -447,10 +453,10 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-black border border-gray-800 rounded-lg overflow-hidden group hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10">
-                <div className="h-48 bg-gray-900 flex items-center justify-center p-6 group-hover:bg-gray-900/80 transition-colors">
+                <div className="h-38 bg-gray-900 flex items-center justify-center p-6 group-hover:bg-gray-900/80 transition-colors">
                   <div className="w-24 h-24 rounded-full bg-cyan-900/40 flex items-center justify-center">
                     {member.icon}
                   </div>

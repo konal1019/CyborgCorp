@@ -100,7 +100,7 @@ export default function CyborgCorpHomepage() {
     {
       quote: "I can see things I never thought possible with the Ocular X-9000. It's like having superpowers!",
       customer: "Sarah Miller",
-      rating: 5
+      rating: 4
     },
     {
       quote: "The CardioCore 7 gives me the confidence and stamina to push my limits every day. Highly recommended!",
