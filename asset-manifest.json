@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CyborgCorp/static/css/main.04fb1119.css",
-    "main.js": "/CyborgCorp/static/js/main.917d6b19.js",
+    "main.js": "/CyborgCorp/static/js/main.c22c6b6e.js",
     "static/js/453.3106dcad.chunk.js": "/CyborgCorp/static/js/453.3106dcad.chunk.js",
     "static/media/lab2.jpg": "/CyborgCorp/static/media/lab2.d815d9cb16cea19769bb.jpg",
     "static/media/HQ.jpg": "/CyborgCorp/static/media/HQ.7b770580914dc9f142ad.jpg",
@@ -19,11 +19,11 @@
     "static/media/regulator.jpg": "/CyborgCorp/static/media/regulator.bb3af31dfaa22d4cf544.jpg",
     "index.html": "/CyborgCorp/index.html",
     "main.04fb1119.css.map": "/CyborgCorp/static/css/main.04fb1119.css.map",
-    "main.917d6b19.js.map": "/CyborgCorp/static/js/main.917d6b19.js.map",
+    "main.c22c6b6e.js.map": "/CyborgCorp/static/js/main.c22c6b6e.js.map",
     "453.3106dcad.chunk.js.map": "/CyborgCorp/static/js/453.3106dcad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04fb1119.css",
-    "static/js/main.917d6b19.js"
+    "static/js/main.c22c6b6e.js"
   ]
 }
