@@ -24,6 +24,33 @@ export default function BuyPage() {
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
 
+  // Fixed scroll functionality
+  useEffect(() => {
+    // This function will be called when the component mounts and when location changes
+    const scrollToSection = () => {
+      if (location.search.includes('section=')) {
+        // Extract section ID from query string
+        const sectionId = new URLSearchParams(location.search).get('section');
+        if (sectionId) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            return; // Exit early if we found and scrolled to a section
+          }
+        }
+      }
+      
+      // If no section parameter or section not found, scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Call the function
+    scrollToSection();
+  }, [location]); 
+
   // Current year calculation
   const currentYear = new Date().getFullYear();
 
@@ -184,10 +211,10 @@ export default function BuyPage() {
                 <Code className="text-cyan-500 w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="font-medium">LeetCode: 4qua__</span>
               </a>
-              <div className="bg-gray-900/50 border border-gray-800 hover:border-cyan-500 px-4 py-3 rounded-lg flex items-center gap-2 transition-all group">
-                <MessageSquare className="text-cyan-500 w-5 h-5 group-hover:scale-110 transition-transform" />
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="bg-gray-900/50 border border-gray-800 hover:border-cyan-500 px-4 py-3 rounded-lg flex items-center gap-2 transition-all group">
+                <Code className="text-cyan-500 w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="font-medium">Discord: 4qua_fl4r3</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

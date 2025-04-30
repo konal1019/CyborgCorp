@@ -3,7 +3,7 @@ import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mai
 import logo from './media/logo.jpg';
 import { Link, useLocation  } from 'react-router-dom';
 
-// generate grid cells first so that the site doesn't run at 1 fps
+// generate grid cells first so that the site doesn't run at 1fps
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   const cells = useMemo(() => {
     return Array.from({ length: rows * cols }).map((_, i) => (
@@ -94,17 +94,17 @@ export default function CyborgCorpHomepage() {
   const testimonials = useMemo(() => [
     {
       quote: "The NeuroBridge Pro has truly changed my life. I feel more connected and in control than ever before.",
-      customer: "Alex Johnson",
+      customer: "Muzakky Khan",
       rating: 5
     },
     {
       quote: "I can see things I never thought possible with the Ocular X-9000. It's like having superpowers!",
-      customer: "Sarah Miller",
+      customer: "Subri Al Sami",
       rating: 4
     },
     {
       quote: "The CardioCore 7 gives me the confidence and stamina to push my limits every day. Highly recommended!",
-      customer: "David Lee",
+      customer: "Farhan Sadik Rihan",
       rating: 5
     }
   ], []);
@@ -153,9 +153,9 @@ export default function CyborgCorpHomepage() {
 
         {/*  CTA Button container */}
         <div className="hidden md:flex gap-4">
-          <a onClick={() => scrollToSection("products")} className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
+          <Link to="/marketplace" className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
             Upgrade Now
-          </a>
+          </Link>
         </div>
       </div>
 

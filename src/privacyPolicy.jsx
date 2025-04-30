@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo} from 'react';
+import { useState, useEffect, useRef, useMemo, cloneElement } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Shield, FileCheck, AlertTriangle, HelpCircle, Scale, Database, Lock, Eye, Trash2, Layers, Download, UserPlus } from 'lucide-react';
 import logo from './media/logo.jpg'; 
 import { Link, useLocation } from 'react-router-dom';
@@ -218,14 +218,22 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             {privacyCategories.map((category) => (
-              <a
+              <button
                 key={category.id}
-                href={`#${category.id}`}
-                className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer px-3 py-1 hover:bg-cyan-500/10 rounded-full" 
+                onClick={() => scrollToSection(category.id)}
+                className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer px-3 py-2 hover:bg-cyan-500/10 rounded-full flex items-center gap-1"
               >
-                {category.title}
-              </a>
+                {category.icon && cloneElement(category.icon, { size: 14 })}
+                <span>{category.title}</span>
+              </button>
             ))}
+            <button
+              onClick={() => scrollToSection('additional')}
+              className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer px-3 py-2 hover:bg-cyan-500/10 rounded-full flex items-center gap-1"
+            >
+              <HelpCircle size={14} className="text-cyan-500" />
+              <span>Additional Info</span>
+            </button>
           </div>
         </div>
       </section>

@@ -14,7 +14,7 @@ import eyeImg2 from './media/eye2.jpg'
 import earImg2 from './media/ear2.jpg'
 import neuralinkImg2 from './media/neuralink2.jpg'
 
-// Background grid component
+// Background grid
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   const cells = useMemo(() => {
     return Array.from({ length: rows * cols }).map((_, i) => (
@@ -175,31 +175,27 @@ export default function MarketplacePage() {
   const location = useLocation();
   const productsGridRef = useRef(null);
 
-  // Check for category in URL and scroll to products grid
+  // URL category checking
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const categoryParam = searchParams.get('category');
     
     if (categoryParam) {
-      // Validate if category exists in our data
       const validCategories = ['All', ...new Set(productsData.map(product => product.category))];
       const categoryExists = validCategories.includes(categoryParam);
       
       if (categoryExists) {
         setSelectedCategory(categoryParam);
         
-        // Scroll to products grid
         if (productsGridRef.current) {
           setTimeout(() => {
-            productsGridRef.current.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('')
           }, 300);
         }
       } else {
-        // Scroll to top if category is invalid
         window.scrollTo(0, 0);
       }
     } else {
-      // No category specified, scroll to top
       window.scrollTo(0, 0);
     }
   }, [location]); 
@@ -217,7 +213,6 @@ export default function MarketplacePage() {
     });
   }, [searchQuery, selectedCategory]);
 
-  // unique categories for filter
   const categories = useMemo(() => {
     const cats = ['All', ...new Set(productsData.map(product => product.category))];
     return cats;
@@ -227,7 +222,7 @@ export default function MarketplacePage() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Cursor glow effect 
+  // Cursor glow 
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isMoving.current) {
@@ -386,7 +381,7 @@ export default function MarketplacePage() {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-gray-950 relative">
+      <section id="SearchAndFilter" className="py-8 bg-gray-950 relative">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             <div className="flex-1">
