@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, ShoppingCart, AlertCircle, Frown, Github, Instagram, Code, MessageSquare } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from './media/logo.jpg';
 
 // Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -24,30 +25,23 @@ export default function BuyPage() {
   const cursorTimeout = useRef(null);
   const isMoving = useRef(false);
 
-  // Fixed scroll functionality
   useEffect(() => {
-    // This function will be called when the component mounts and when location changes
     const scrollToSection = () => {
       if (location.search.includes('section=')) {
-        // Extract section ID from query string
         const sectionId = new URLSearchParams(location.search).get('section');
         if (sectionId) {
           const element = document.getElementById(sectionId);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-            return; // Exit early if we found and scrolled to a section
+            return;
           }
         }
       }
-      
-      // If no section parameter or section not found, scroll to top
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
     };
-
-    // Call the function
     scrollToSection();
   }, [location]); 
 
@@ -108,8 +102,8 @@ export default function BuyPage() {
       {/* Navigation */}
       <header className="border-b border-gray-800 bg-black/90 backdrop-blur-sm fixed w-full z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <CircuitBoard className="text-cyan-500" size={20} />
+        <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <img src={logo} alt="CyborgCorp Logo" className="h-6 w-auto" />
             <span className="text-xl font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
           </Link>
 
@@ -226,7 +220,7 @@ export default function BuyPage() {
           <div className="flex flex-col md:flex-row justify-between gap-8">
             <div className="md:w-1/3">
               <div className="flex items-center gap-2 mb-4 cursor-pointer hover:opacity-80 transition-opacity">
-                <CircuitBoard className="text-cyan-500" size={20} />
+                <img src={logo} alt="CyborgCorp Logo" className="h-6 w-auto" />
                 <span className="text-lg font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
               </div>
               <p className="text-gray-400 text-sm">

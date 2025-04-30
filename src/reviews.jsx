@@ -345,7 +345,7 @@ export default function Reviews() {
           <div className="flex flex-col md:flex-row justify-between gap-8">
             <div className="md:w-1/3">
               <div className="flex items-center gap-2 mb-4 cursor-pointer hover:opacity-80 transition-opacity">
-                <CircuitBoard className="text-cyan-500" size={20} />
+                <img src={logo} alt="CyborgCorp Logo" className="h-6 w-auto" />
                 <span className="text-lg font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
               </div>
               <p className="text-gray-400 text-sm">

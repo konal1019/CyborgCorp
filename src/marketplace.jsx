@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Smartphone, Search, Filter, ShoppingCart, AlertCircle, Star } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from './media/logo.jpg'
 import armImg from './media/arm.jpg';
 import earImg from './media/ear.jpg';
 import eyeImg from './media/eye.jpg';
@@ -249,24 +250,6 @@ export default function MarketplacePage() {
     };
   }, []);
 
-  // icon components
-  const PlaceholderIcon = ({ category }) => {
-    switch(category) {
-      case 'Limb':
-        return <CircuitBoard className="text-cyan-400 w-16 h-16" />;
-      case 'Eye':
-        return <Eye className="text-cyan-400 w-16 h-16" />;
-      case 'Ear':
-        return <Cpu className="text-cyan-400 w-16 h-16" />;
-      case 'Internal Organ':
-        return <Heart className="text-cyan-400 w-16 h-16" />;
-      case 'Neuralink':
-        return <Brain className="text-cyan-400 w-16 h-16" />;
-      default:
-        return <CircuitBoard className="text-cyan-400 w-16 h-16" />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-black text-gray-100 relative overflow-hidden">
       {/* cursor effect */}
@@ -290,8 +273,8 @@ export default function MarketplacePage() {
       {/* Navigation */}
       <header className="border-b border-gray-800 bg-black/90 backdrop-blur-sm fixed w-full z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <CircuitBoard className="text-cyan-500" size={20} />
+        <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <img src={logo} alt="CyborgCorp Logo" className="h-6 w-auto" />
             <span className="text-xl font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
           </Link>
 
@@ -437,7 +420,6 @@ export default function MarketplacePage() {
                     <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredProduct === product.id ? 'opacity-0' : 'opacity-100'}`}>
                       {/* Use actual imported product image */}
                       <div className="flex items-center justify-center h-full w-full bg-gray-900">
-                        <PlaceholderIcon category={product.category} />
                         <img src={product.image} alt={product.name} className="absolute object-cover h-full w-full opacity-70" />
                       </div>
                     </div>
@@ -539,7 +521,7 @@ export default function MarketplacePage() {
           <div className="flex flex-col md:flex-row justify-between gap-8">
             <div className="md:w-1/3">
               <div className="flex items-center gap-2 mb-4 cursor-pointer hover:opacity-80 transition-opacity">
-                <CircuitBoard className="text-cyan-500" size={20} />
+                <img src={logo} alt="CyborgCorp Logo" className="h-6 w-auto" />
                 <span className="text-lg font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
               </div>
               <p className="text-gray-400 text-sm">
