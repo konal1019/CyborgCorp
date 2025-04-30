@@ -478,16 +478,16 @@ export default function CyborgCorpHomepage() {
                     </div>
                     <h3 className="font-medium mb-2">Social Media</h3>
                     <div className="flex gap-3 mt-1">
-                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                        <a href="https://twitter.com" className="text-cyan-100 hover:text-cyan-400 transition-colors">
                             <Twitter size={20} />
                         </a>
-                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                        <a herf="https://www.instagram.com/4quafl4r3" className="text-cyan-100 hover:text-cyan-400 transition-colors">
                             <Instagram size={20} />
                         </a>
-                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                        <a href="https://www.linkedin.com" className="text-cyan-100 hover:text-cyan-400 transition-colors">
                             <Linkedin size={20} />
                         </a>
-                        <a className="text-cyan-100 hover:text-cyan-400 transition-colors">
+                        <a href="https://github.com/konal1019/CyborgCorp" className="text-cyan-100 hover:text-cyan-400 transition-colors">
                             <Github size={20} />
                         </a>
                     </div>

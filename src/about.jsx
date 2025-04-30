@@ -2,10 +2,10 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, Award, Zap, Users } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from './media/logo.jpg';
-import labImg1 from './lab1.jpg';
-import labImg2 from './lab2.jpg';
-import labImg3 from './lab3.jpg';
-import hqImage from './HQ.jpg'; // Import the HQ image
+import labImg1 from './media/lab1.jpg';
+import labImg2 from './media/lab2.jpg';
+import labImg3 from './media/lab3.jpg';
+import hqImage from './media/HQ.jpg'; // Import the HQ image
 
 // Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
