@@ -241,10 +241,10 @@ export default function CyborgCorpHomepage() {
               <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">Ocular X-9000</h3>
               <p className="text-gray-400 mb-4">Enhanced vision with night vision, zoom capabilities, and augmented reality overlay.</p>
               <div className="flex justify-between items-center">
-                <span className="text-cyan-500 font-semibold">$14,999</span>
-                <a className="flex items-center text-sm hover:text-cyan-400 transition-colors group-hover:translate-x-1 transition-transform cursor-pointer">
+                <span className="text-cyan-500 font-semibold">$8,799</span>
+                <Link to="/product?product=eye1" className="flex items-center text-sm hover:text-cyan-400 transition-colors group-hover:translate-x-1 transition-transform cursor-pointer">
                   Learn More <ChevronRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -258,10 +258,10 @@ export default function CyborgCorpHomepage() {
               <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">CardioCore 7</h3>
               <p className="text-gray-400 mb-4">Military-grade heart replacement with 200% efficiency and remote monitoring.</p>
               <div className="flex justify-between items-center">
-                <span className="text-cyan-500 font-semibold">$29,999</span>
-                <a className="flex items-center text-sm hover:text-cyan-400 transition-colors group-hover:translate-x-1 transition-transform cursor-pointer">
+                <span className="text-cyan-500 font-semibold">$21,999</span>
+                <Link to="/product?product=heart" className="flex items-center text-sm hover:text-cyan-400 transition-colors group-hover:translate-x-1 transition-transform cursor-pointer">
                   Learn More <ChevronRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -275,10 +275,10 @@ export default function CyborgCorpHomepage() {
               <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">NeuroBridge Pro</h3>
               <p className="text-gray-400 mb-4">Neural enhancement chip for improved cognition, memory, and wireless connectivity.</p>
               <div className="flex justify-between items-center">
-                <span className="text-cyan-500 font-semibold">$42,999</span>
-                <a className="flex items-center text-sm hover:text-cyan-400 transition-colors group-hover:translate-x-1 transition-transform cursor-pointer">
+                <span className="text-cyan-500 font-semibold">$24,999</span>
+                <Link to="/product?product=neuralink1" className="flex items-center text-sm hover:text-cyan-400 transition-colors group-hover:translate-x-1 transition-transform cursor-pointer">
                   Learn More <ChevronRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
