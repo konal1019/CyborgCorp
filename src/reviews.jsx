@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, CircuitBoard } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from './logo.png';
+import logo from './media/logo.jpg';
 
 // Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {

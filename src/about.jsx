@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, Award, Zap, Users } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from './logo.png';
-import labImg from './lab.jpg';
+import logo from './media/logo.jpg';
+import labImg1 from './lab1.jpg';
+import labImg2 from './lab2.jpg';
+import labImg3 from './lab3.jpg';
+import hqImage from './HQ.jpg'; // Import the HQ image
 
 // Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
@@ -15,6 +18,79 @@ const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {
   return (
     <div className={`grid ${cols <= 12 ? `grid-cols-${cols}` : 'grid-cols-12'} ${rows <= 12 ? `grid-rows-${rows}` : 'grid-rows-12'} h-full w-full ${className}`}>
       {cells}
+    </div>
+  );
+};
+const LabCarousel = ({ foundingYear }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const slides = [
+    {
+      image: labImg1,
+      description: "The journey started from neural research",
+      progressWidth: "w-1/4",
+      year: 2018
+    },
+    {
+      image: labImg2,
+      description: "Next came integration of body parts",
+      progressWidth: "w-2/4",
+      year: 2020
+    },
+    {
+      image: labImg3,
+      description: "Now we have full integrated systems",
+      progressWidth: "w-3/4",
+      year: 2024
+    }
+  ];
+
+  const categories = ["Neural research", "Body enhancements", "Full integration"];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative">
+      <div
+        className="w-full h-64 md:h-96 bg-black border border-gray-800 rounded-lg overflow-hidden group hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${slides[activeIndex].image})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/60 to-black/40"></div>
+        <div className="relative h-full p-6 flex flex-col justify-between z-10">
+          <div className="flex justify-between items-start">
+            <div className="bg-cyan-500/20 p-2 rounded">
+              <Brain className="text-cyan-500" size={24} />
+            </div>
+            <div className="text-sm text-cyan-400">{slides[activeIndex].year}</div>
+          </div>
+
+          <div className="space-y-3">
+            <div className="w-full h-1 bg-gray-800/70 relative">
+              <div className={`absolute top-0 left-0 h-1 bg-cyan-500 ${slides[activeIndex].progressWidth}`}></div>
+            </div>
+
+            <div className="flex justify-between text-xs text-gray-300">
+              {categories.map((category, index) => (
+                <span 
+                  key={index} 
+                  className={`cursor-pointer transition-all ${activeIndex === index ? 'text-cyan-400' : 'text-gray-300'}`}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  {category}
+                </span>
+              ))}
+            </div>
+
+            <div className="text-gray-300 text-sm bg-black/40 p-3 rounded">
+              {slides[activeIndex].description}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -89,6 +165,34 @@ export default function AboutPage() {
   // Current year calculation
   const currentYear = new Date().getFullYear();
   const foundingYear = currentYear - 7;
+  
+  // Success stats data
+  const successStats = [
+    {
+      title: "Years of Innovation",
+      value: "7+",
+      description: "Pioneering human enhancement since 2018",
+      icon: <Zap className="text-cyan-400 w-10 h-10" />
+    },
+    {
+      title: "Enhancements Sold",
+      value: "127,834",
+      description: "Helping clients exceed biological limitations",
+      icon: <CircuitBoard className="text-cyan-400 w-10 h-10" />
+    },
+    {
+      title: "Patents & Innovations",
+      value: "42",
+      description: "Groundbreaking technologies developed",
+      icon: <Cpu className="text-cyan-400 w-10 h-10" />
+    },
+    {
+      title: "Industry Awards",
+      value: "16",
+      description: "Including 3 Biomechanical Excellence Awards",
+      icon: <Award className="text-cyan-400 w-10 h-10" />
+    }
+  ];
   
   // Team members data
   const teamMembers = useMemo(() => [
@@ -175,11 +279,17 @@ export default function AboutPage() {
       </header>
 
       {/* About Hero Section */}
-      <section id = 'home' className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10">
-          <BackgroundGrid />
+      <section id="home" className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 left-0 w-full md:w-3/4 bg-cover bg-center opacity-60" 
+               style={{ backgroundImage: `url(${hqImage})` }}>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/50 to-black"></div>
+          </div>
+          <div className="absolute inset-0 z-0 opacity-10">
+            <BackgroundGrid />
+          </div>
         </div>
-
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/2">
@@ -219,7 +329,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-    <section className="py-12 md:py-20 bg-gray-950 relative">
+      <section className="py-12 md:py-20 bg-gray-950 relative">
         <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-cyan-500">Story</span></h2>
@@ -231,7 +341,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
                 <p className="text-gray-300 mb-4">
-                CyborgCorp began as a small research initiative led by Dr. Eliza Chen in {foundingYear}, focused on developing neural interface technology for medical applications.
+                CyborgCorp began as a small research initiative led by Dr. Eliza Chen in 2018, focused on developing neural interface technology for medical applications.
                 </p>
                 <p className="text-gray-300 mb-4">
                 Our breakthrough came when we successfully integrated a proprietary NeuroBridge™ prototype with the human nervous system, allowing unprecedented levels of control and feedback.
@@ -240,51 +350,47 @@ export default function AboutPage() {
                 Within two years, we had expanded from neural interfaces to full cybernetic enhancements, establishing our first clinical facility for integrated procedures.
                 </p>
                 <p className="text-gray-300">
-                Today, we operate in 17 countries with over 200 certified cybernetic specialists, having helped more than 10,000 clients transcend their biological limitations through our advanced enhancement technologies.
+                Today, we operate in 27 countries with over 200 certified cybernetic specialists, having helped more than 10,000 clients transcend their biological limitations through our advanced enhancement technologies.
                 </p>
             </div>
-
-        <div className="relative">
-          <div
-            className="w-full h-64 md:h-96 bg-black border border-gray-800 rounded-lg overflow-hidden group hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10 bg-cover bg-center"
-            style={{ backgroundImage: `url(${labImg})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-900/60 to-black/40"></div>
-            <div className="relative h-full p-6 flex flex-col justify-between z-10">
-              <div className="flex justify-between items-start">
-                <div className="bg-cyan-500/20 p-2 rounded">
-                  <Brain className="text-cyan-500" size={24} />
-                </div>
-                <div className="text-sm text-cyan-400">{foundingYear}</div>
-              </div>
-
-              <div className="space-y-3">
-                <div className="w-full h-1 bg-gray-800/70 relative">
-                  <div className="absolute top-0 left-0 h-1 bg-cyan-500 w-3/4"></div>
-                </div>
-
-                <div className="flex justify-between text-xs text-gray-300">
-                  <span>First Neural Interface</span>
-                  <span>Global Expansion</span>
-                  <span>Present Day</span>
-                </div>
-
-                <div className="text-gray-300 text-sm bg-black/40 p-3 rounded">
-                  Our journey from medical research to cybernetic innovation has
-                  been guided by a single mission: to enhance human potential
-                  through seamless integration of technology and biology.
-                </div>
-              </div>
+            <LabCarousel foundingYear={foundingYear} />
             </div>
+        </div>
+      </section>
+
+      {/* Our Success Section */}
+      <section className="py-12 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <BackgroundGrid rows={6} cols={6} />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-cyan-500">Success</span></h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              The numbers that demonstrate our impact on human enhancement technology.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {successStats.map((stat, index) => (
+              <div key={index} className="bg-black/40 border border-gray-800 rounded-lg p-6 hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10 group">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="bg-cyan-500/20 p-2 rounded-lg">
+                    {stat.icon}
+                  </div>
+                  <div className="text-3xl font-bold text-cyan-400">{stat.value}</div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-cyan-400 transition-colors">{stat.title}</h3>
+                <p className="text-gray-400 text-sm">{stat.description}</p>
+              </div>
+            ))}
           </div>
         </div>
-
-            </div>
-        </div>
-    </section>
+      </section>
 
       {/* Values Section */}
-      <section className="py-12 md:py-20 relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
           <BackgroundGrid rows={10} cols={10} />
         </div>
@@ -332,7 +438,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team Section */}
-      <section className="py-12 md:py-20 bg-gray-950 relative">
+      <section className="py-12 md:py-20 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-cyan-500">Team</span></h2>
@@ -398,7 +504,7 @@ export default function AboutPage() {
                 <span className="text-lg font-bold tracking-tight">CYBORG<span className="text-cyan-500">CORP</span></span>
               </div>
               <p className="text-gray-400 text-sm">
-                Pushing the boundaries of human potential through advanced cybernetic enhancements since {foundingYear}.
+                Pushing the boundaries of human potential through advanced cybernetic enhancements since 2018.
               </p>
             </div>
 

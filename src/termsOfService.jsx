@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo} from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Shield, FileCheck, AlertTriangle, HelpCircle, Scale, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
-import logo from './logo.png';
+import logo from './media/logo.jpg';
 import { Link, useLocation } from 'react-router-dom';
 
 // create bg grid first to avoid lag

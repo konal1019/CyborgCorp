@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Smartphone, Search, Filter, ShoppingCart, AlertCircle, Star } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import armImg from './product/arm.jpg';
-import earImg from './product/ear.jpg';
-import eyeImg from './product/eye.jpg';
-import heartImg from './product/heart.jpg';
-import legImg from './product/leg.jpg';
-import lungImg from './product/lung.jpg';
-import neuralinkImg from './product/neuralink.jpg';
-import regulatorImg from './product/regulator.jpg';
-import kidneyImg from './product/kidney.jpg';
-import eyeImg2 from './product/eye2.jpg'
-import earImg2 from './product/ear2.jpg'
-import neuralinkImg2 from './product/neuralink2.jpg'
+import armImg from './media/arm.jpg';
+import earImg from './media/ear.jpg';
+import eyeImg from './media/eye.jpg';
+import heartImg from './media/heart.jpg';
+import legImg from './media/leg.jpg';
+import lungImg from './media/lung.jpg';
+import neuralinkImg from './media/neuralink.jpg';
+import regulatorImg from './media/regulator.jpg';
+import kidneyImg from './media/kidney.jpg';
+import eyeImg2 from './media/eye2.jpg'
+import earImg2 from './media/ear2.jpg'
+import neuralinkImg2 from './media/neuralink2.jpg'
 
 // Background grid component
 const BackgroundGrid = ({ rows = 8, cols = 8, className = "" }) => {

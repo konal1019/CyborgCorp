@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Ear, Hand, BrainCog, Shield, Zap, ChevronUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from './logo.png';
+import logo from './media/logo.jpg';
 
 // Background grid component
 const BackgroundGrid = ({ rows = 16, cols = 16, className = "" }) => {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Menu, X, ChevronRight, CircuitBoard, Heart, Brain, Eye, Cpu, Phone, Mail, Smartphone, Github, Twitter, Linkedin, Instagram, MessageSquare } from 'lucide-react';
-import logo from './logo.png';
+import logo from './media/logo.jpg';
 import { Link, useLocation  } from 'react-router-dom';
 
 // generate grid cells first so that the site doesn't run at 1 fps
@@ -148,12 +148,12 @@ export default function CyborgCorpHomepage() {
 
         {/* Mobile menu button */}
         <button onClick={toggleMenu} className="md:hidden text-white cursor-pointer hover:text-cyan-400 transition-colors">
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}\
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/*  CTA Button container */}
         <div className="hidden md:flex gap-4">
-          <a onClick={() => scrollToSection("contact")} className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
+          <a onClick={() => scrollToSection("products")} className="bg-cyan-500 hover:bg-cyan-600 text-black px-4 py-2 rounded font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
             Upgrade Now
           </a>
         </div>

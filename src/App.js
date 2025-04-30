@@ -8,6 +8,7 @@ import PrivacyPolicyPage from './privacyPolicy.jsx';
 import NerdPage from './nerd.jsx';
 import MarketplacePage from './marketplace.jsx';
 import BuyPage from './buy.jsx';
+import ProductPage from './product.jsx';
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
       <Route path="/termsOfService" element={<TermsOfServicePage />} />
       <Route path="/reviews" element={<ReviewsPage />} />
       <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
-      <Route path="/nerd" element={<NerdPage />} />
       <Route path="/marketplace" element={<MarketplacePage />} />
+      <Route path="/nerd" element={<NerdPage />} />
       <Route path="/buy" element={<BuyPage />} />
+      <Route path="/product" element={<ProductPage />} />
     </Routes>
   );
 }
