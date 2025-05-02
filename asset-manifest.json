@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CyborgCorp/static/css/main.04fb1119.css",
-    "main.js": "/CyborgCorp/static/js/main.98df9e17.js",
+    "main.js": "/CyborgCorp/static/js/main.9f677d15.js",
     "static/js/453.3106dcad.chunk.js": "/CyborgCorp/static/js/453.3106dcad.chunk.js",
     "static/media/lab2.jpg": "/CyborgCorp/static/media/lab2.d815d9cb16cea19769bb.jpg",
     "static/media/HQ.jpg": "/CyborgCorp/static/media/HQ.7b770580914dc9f142ad.jpg",
@@ -13,17 +13,19 @@
     "static/media/leg.jpg": "/CyborgCorp/static/media/leg.91255a57677ba99ed746.jpg",
     "static/media/arm.jpg": "/CyborgCorp/static/media/arm.33e715dc338a7f45da75.jpg",
     "static/media/lab1.jpg": "/CyborgCorp/static/media/lab1.c4673ba5453eded863ed.jpg",
+    "static/media/neuralink2.jpg": "/CyborgCorp/static/media/neuralink2.6e7299e3e511de7c88be.jpg",
+    "static/media/regulator.jpg": "/CyborgCorp/static/media/regulator.0b90220c19ca31bfeec3.jpg",
+    "static/media/eye.jpg": "/CyborgCorp/static/media/eye.cc1e29f78ba7b6e5210e.jpg",
     "static/media/eye2.jpg": "/CyborgCorp/static/media/eye2.83213c11906ebe30e943.jpg",
     "static/media/logo.jpg": "/CyborgCorp/static/media/logo.f81b5494acd4301dcefe.jpg",
-    "static/media/neuralink2.jpg": "/CyborgCorp/static/media/neuralink2.b34194bba1a13b06729d.jpg",
-    "static/media/regulator.jpg": "/CyborgCorp/static/media/regulator.bb3af31dfaa22d4cf544.jpg",
+    "static/media/neuralink.jpg": "/CyborgCorp/static/media/neuralink.659d815330cfe2d289ee.jpg",
     "index.html": "/CyborgCorp/index.html",
     "main.04fb1119.css.map": "/CyborgCorp/static/css/main.04fb1119.css.map",
-    "main.98df9e17.js.map": "/CyborgCorp/static/js/main.98df9e17.js.map",
+    "main.9f677d15.js.map": "/CyborgCorp/static/js/main.9f677d15.js.map",
     "453.3106dcad.chunk.js.map": "/CyborgCorp/static/js/453.3106dcad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04fb1119.css",
-    "static/js/main.98df9e17.js"
+    "static/js/main.9f677d15.js"
   ]
 }
