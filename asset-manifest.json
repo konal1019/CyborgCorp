@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CyborgCorp/static/css/main.04fb1119.css",
-    "main.js": "/CyborgCorp/static/js/main.9f677d15.js",
+    "main.js": "/CyborgCorp/static/js/main.bd4bd43a.js",
     "static/js/453.3106dcad.chunk.js": "/CyborgCorp/static/js/453.3106dcad.chunk.js",
     "static/media/lab2.jpg": "/CyborgCorp/static/media/lab2.d815d9cb16cea19769bb.jpg",
     "static/media/HQ.jpg": "/CyborgCorp/static/media/HQ.7b770580914dc9f142ad.jpg",
@@ -21,11 +21,11 @@
     "static/media/neuralink.jpg": "/CyborgCorp/static/media/neuralink.659d815330cfe2d289ee.jpg",
     "index.html": "/CyborgCorp/index.html",
     "main.04fb1119.css.map": "/CyborgCorp/static/css/main.04fb1119.css.map",
-    "main.9f677d15.js.map": "/CyborgCorp/static/js/main.9f677d15.js.map",
+    "main.bd4bd43a.js.map": "/CyborgCorp/static/js/main.bd4bd43a.js.map",
     "453.3106dcad.chunk.js.map": "/CyborgCorp/static/js/453.3106dcad.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04fb1119.css",
-    "static/js/main.9f677d15.js"
+    "static/js/main.bd4bd43a.js"
   ]
 }
